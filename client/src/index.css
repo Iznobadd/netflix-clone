@@ -30,9 +30,10 @@
 
 .remember input + label {
   padding: 0;
-  color: #333;
+  color: #b3b3b3;
   line-height: 1.2;
   position: relative;
+  display: block;
 }
 
 .remember input + label::before {
@@ -52,5 +53,9 @@
   position: absolute;
 }
 .remember input[type="checkbox"]:checked + label::after {
-  content: "\e804";
+  content: "✔";
+  font-size: 18px;
+  left: -20px;
+  top: 0;
+  color: #000;
 }
