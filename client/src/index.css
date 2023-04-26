@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Netflix";
+  src: url("./assets/fonts/NetflixSans-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Netflix";
+  font-weight: 200;
+  src: url("./assets/fonts/NetflixSans-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "Netflix";
+  font-weight: 500;
+  src: url("./assets/fonts/NetflixSans-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Netflix";
+  font-weight: 700;
+  src: url("./assets/fonts/NetflixSans-Bold.otf") format("opentype");
+}
+@layer base {
+  html {
+    font-family: "Netflix", sans-serif;
+  }
+}
+
+.remember input + label {
+  padding: 0;
+  color: #333;
+  line-height: 1.2;
+  position: relative;
+}
+
+.remember input + label::before {
+  background: #737373;
+  border: 0;
+  border-radius: 2px;
+  height: 16px;
+  left: -20px;
+  width: 16px;
+  content: "";
+  display: block;
+  padding: 0;
+  position: absolute;
+  top: 2px;
+}
+.remember input[type="checkbox"] + label::after {
+  position: absolute;
+}
+.remember input[type="checkbox"]:checked + label::after {
+  content: "\e804";
+}

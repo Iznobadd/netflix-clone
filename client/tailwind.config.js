@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         primary: "#e50914",
       },
+      fontSize: {
+        h1: "32px",
+      },
     },
   },
   plugins: [],
