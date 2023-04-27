@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="relative z-[1] block">
+    <header className="relative z-[1] block">
       <div className="h-[5rem] m-auto max-w-[calc(100%-3rem)] flex items-center justify-end absolute left-0 right-0 lg:h-[5.375rem] xl:max-w-[calc(83.33%-6rem)]">
         <span className="ml-0 mr-auto">
           <svg
@@ -76,7 +76,7 @@ const Header = () => {
           </a>
         </span>
       </div>
-    </div>
+    </header>
   );
 };
 
