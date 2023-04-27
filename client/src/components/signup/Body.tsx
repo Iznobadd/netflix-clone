@@ -41,7 +41,7 @@ const Body = () => {
       </div>
       <div className="bg-black/75 mt-0 text-[#757575] text-[15px] min-w-[190px] relative w-full pb-[20px]">
         <div className="md:hidden border-[#737373] border-t h-0 w-full"></div>
-        <div className="text-[#737373] py-[30px] mx-auto w-[90%]">
+        <div className="text-[#737373] py-[30px] mx-auto w-[90%] max-w-[1000px]">
           <p className="text-[#737373] mb-[30px] p-0 ">
             Des questions ? Appelez le{" "}
             <a href="tel:(+33) 0805-543-063" className="text-[#737373]">
@@ -93,7 +93,15 @@ const Body = () => {
               >
                 <span className="text-input">Choisir la langue</span>
               </label>
-              <div className="inline-block relative w-full before:text-[#999] before:top-[14px] before:content-['⊕'] before:text-[16px] before:pointer-events-none before:absolute before:left-[15px] after:content-['▼'] after:text-[#999] after:text-[6px] after:pointer-events-none after:absolute after:right-[10px] after:top-[18px]"></div>
+              <div className="inline-block relative w-full before:text-[#999] before:top-[3px] before:content-['⊕'] before:text-[27px] before:pointer-events-none before:absolute before:left-[8px] after:content-['▼'] after:text-[#999] after:text-[19px] after:pointer-events-none after:absolute after:right-[10px] after:top-[11px]">
+                <select
+                  id="select-langswitcher"
+                  className="pr-[26px] leading-[1.7] pl-[50px] bg-black border border-[#333] text-[13px] p-[12px] appearance-none rounded-sm w-full"
+                >
+                  <option value="fr">Français</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>

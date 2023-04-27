@@ -1,7 +1,10 @@
 const Header = () => {
   return (
     <div className="md:bg-gradient-to-b from-black-900 md:to-transparent md:left-0 md:absolute md:top-0 md:w-full bg-none border-0 h-[75px] md:h-[90px] z-[2]">
-      <a className="ml-[3%] leading-[75px] md:leading-[90px] fill-primary inline-block align-middle no-underline bg-transparent">
+      <a
+        className="ml-[3%] leading-[75px] md:leading-[90px] fill-primary inline-block align-middle no-underline bg-transparent"
+        href="#"
+      >
         <svg
           viewBox="0 0 111 30"
           className="h-[45px] align-middle w-[167px] inline"
