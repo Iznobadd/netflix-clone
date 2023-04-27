@@ -59,3 +59,9 @@
   top: 0;
   color: #000;
 }
+
+.focused {
+  font-size: 10px;
+  top: 28%;
+  transition: 0.1s ease-in-out;
+}

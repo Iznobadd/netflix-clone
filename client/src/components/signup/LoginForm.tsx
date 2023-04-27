@@ -1,4 +1,20 @@
+import { useEffect, useState } from "react";
+
 const LoginForm = () => {
+  function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
+    const label = document.querySelector(`label[for='${event.target.id}']`);
+    label?.classList.add("focused");
+  }
+
+  function handleBlur(event: React.FocusEvent<HTMLInputElement>): void {
+    const label = document.querySelector(`label[for='${event.target.id}']`);
+    if (label && event.target.value === "") {
+      label?.classList.remove("focused");
+    }
+  }
+
+  // animation sur label si input est focus en react sans getElementById
+
   return (
     <form action="">
       <div className="pb-[16px] max-w-full relative">
@@ -9,10 +25,12 @@ const LoginForm = () => {
                 type="text"
                 className="bg-input border-0 rounded text-white h-[50px] leading-[50px] px-[20px] pt-[16px] w-full box-border block text-[16px]"
                 id="email"
+                onFocus={handleFocus}
+                onBlur={handleBlur}
               />
               <label
                 htmlFor="email"
-                className="text-gray absolute text-[14px] top-1/2 -translate-y-1/2 left-[20px]"
+                className="text-gray absolute text-[14px] top-1/2 -translate-y-1/2 left-[20px] transition"
               >
                 E-mail ou numéro de téléphone
               </label>
@@ -29,6 +47,8 @@ const LoginForm = () => {
                 type="text"
                 className="bg-input border-0 rounded text-white h-[50px] leading-[50px] px-[20px] pt-[16px] w-full box-border block text-[16px]"
                 id="pwd"
+                onFocus={handleFocus}
+                onBlur={handleBlur}
               />
               <label
                 htmlFor="pwd"
