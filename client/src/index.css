@@ -62,6 +62,32 @@
 
 .focused {
   font-size: 10px;
-  top: 28%;
+  top: 28% !important;
   transition: 0.1s ease-in-out;
+}
+.focused-hero {
+  font-size: 13px;
+  top: 6% !important;
+  transition: 0.1s ease-in-out;
+}
+
+.radial-hero {
+  background-image: radial-gradient(
+    120.35% 551% at 49.86% -6.29%,
+    rgb(229, 9, 20) 0%,
+    rgb(14, 27, 79) 46.15%,
+    rgb(13, 17, 33) 100%
+  );
+}
+
+@media screen and (min-width: 740px) {
+  .radial-hero {
+    background-image: radial-gradient(
+      51.39% 511.66% at 47.68% -217.91%,
+      #ff9900 0%,
+      #e50914 17.27%,
+      #0e1b4f 79.44%,
+      #000413 100%
+    ) !important;
+  }
 }
