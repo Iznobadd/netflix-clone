@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 const LoginForm = () => {
   function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
     const label = document.querySelector(`label[for='${event.target.id}']`);
@@ -12,8 +10,6 @@ const LoginForm = () => {
       label?.classList.remove("focused");
     }
   }
-
-  // animation sur label si input est focus en react sans getElementById
 
   return (
     <form action="">

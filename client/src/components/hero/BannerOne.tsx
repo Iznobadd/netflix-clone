@@ -1,6 +1,17 @@
 import backgroundImg from "../../assets/images/signup.jpg";
 
 const BannerOne = () => {
+  function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
+    const label = document.querySelector(`label[for='${event.target.id}']`);
+    label?.classList.add("focused-hero");
+  }
+
+  function handleBlur(event: React.FocusEvent<HTMLInputElement>): void {
+    const label = document.querySelector(`label[for='${event.target.id}']`);
+    if (label && event.target.value === "") {
+      label?.classList.remove("focused-hero");
+    }
+  }
   return (
     <div className="relative flex justify-center text-center text-white box-border h-full min-h-[30rem] md:min-h-[32rem] lg:min-h-[43.75rem] pt-[7.5rem] md:pt-[8.5rem] lg:pt-[9.875rem] pb-[2rem] md:pb-[3rem] lg:pb-[4rem]">
       <div className="h-full left-0 absolute top-0 w-full">
@@ -41,7 +52,9 @@ const BannerOne = () => {
                         type="text"
                         name="email"
                         id="email"
-                        className="w-full text-transparent leading-[1.5rem] px-[1rem] pt-[1.25rem] md:pt-[1.5rem] md:pb-[0.5rem] pb-[0.25rem] min-h-[16px] min-w-[16px] appearance-none bg-transparent border-0 m-0"
+                        className="w-full text-transparent text-white leading-[1.5rem] px-[1rem] pt-[1.25rem] md:pt-[1.5rem] md:pb-[0.5rem] pb-[0.25rem] min-h-[16px] min-w-[16px] appearance-none bg-transparent border-0 m-0"
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
                       />
                       <div className="border rounded bg-[rgba(22,22,22,0.7)] border-[rgba(128,128,128,0.7)] text-transparent absolute flex justify-center left-0 top-0 right-0 bottom-0 z-[-1] select-none"></div>
                     </div>
