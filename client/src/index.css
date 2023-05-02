@@ -79,6 +79,10 @@
     rgb(13, 17, 33) 100%
   );
 }
+.download-bg {
+  background: url("./assets/images/download-icon.gif");
+  background-size: 100%;
+}
 
 @media screen and (min-width: 740px) {
   .radial-hero {
