@@ -1,4 +1,5 @@
 import BannerOne from "../components/hero/BannerOne";
+import BannerThree from "../components/hero/BannerThree";
 import BannerTwo from "../components/hero/BannerTwo";
 import Header from "../components/hero/Header";
 
@@ -8,6 +9,7 @@ const Hero = () => {
       <Header />
       <BannerOne />
       <BannerTwo />
+      <BannerThree />
     </div>
   );
 };
