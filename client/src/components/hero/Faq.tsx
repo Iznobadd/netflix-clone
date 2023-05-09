@@ -67,12 +67,13 @@ const Faq = () => {
             </ul>
             <div className="mt-[2.85rem]">
               <div className="text-center box-border max-w-[61.5rem] mx-auto px-[1.5rem] md:px-[2rem]">
-                <FormEmail />
+                <FormEmail index="2" />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div className="w-full h-[0.5rem] absolute bottom-[-0.5rem] bg-[rgb(35,35,35)] "></div>
     </div>
   );
 };

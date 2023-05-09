@@ -42,8 +42,8 @@ const Header = () => {
                 id="languageSelect"
                 className="min-w-[auto] py-[0.375rem] pl-[2.25rem] pr-[1.75rem] min-h-[16px] w-[0.0625rem] border-0 bg-transparent leading-[1.25rem] md:pr-[2.25rem] md:w-auto appearance-none"
               >
-                <option value="en">English</option>
                 <option value="fr">Français</option>
+                <option value="en">English</option>
               </select>
               <div className="pr-[0.75rem] border rounded bg-[rgba(22,22,22,0.7)] border-[rgba(128,128,128,0.7)] absolute flex justify-end items-center left-0 top-0 right-0 bottom-0 z-[-1] select-none">
                 <svg

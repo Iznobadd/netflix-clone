@@ -1,4 +1,4 @@
-const FormEmail = () => {
+const FormEmail = ({ index }: any) => {
   function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
     const label = document.querySelector(`label[for='${event.target.id}']`);
     label?.classList.add("focused-hero");
@@ -19,7 +19,7 @@ const FormEmail = () => {
       <div className="text-left relative mx-auto mt-[1rem] w-full max-w-[36.625rem] flex flex-col items-center md:flex-row md:items-start">
         <div className="w-full relative inline-flex flex-wrap md:w-auto md:flex-auto">
           <label
-            htmlFor="email-footer"
+            htmlFor={`email${index}`}
             className="absolute z-[1] whitespace-nowrap overflow-hidden text-ellipsis pointer-events-none text-[1rem] text-[rgba(255,255,255,0.7)] left-[1rem] leading-[1.5rem] right-[1rem] top-[0.75rem] md:top-[1rem] block select-none"
           >
             Adresse e-mail
@@ -28,7 +28,7 @@ const FormEmail = () => {
             <input
               type="text"
               name="email"
-              id="email-footer"
+              id={`email${index}`}
               className="w-full text-transparent text-white leading-[1.5rem] px-[1rem] pt-[1.25rem] md:pt-[1.5rem] md:pb-[0.5rem] pb-[0.25rem] min-h-[16px] min-w-[16px] appearance-none bg-transparent border-0 m-0"
               onFocus={handleFocus}
               onBlur={handleBlur}
