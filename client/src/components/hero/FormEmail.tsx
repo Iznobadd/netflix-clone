@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 const FormEmail = ({ index }: any) => {
   function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
     const label = document.querySelector(`label[for='${event.target.id}']`);
@@ -36,7 +37,10 @@ const FormEmail = ({ index }: any) => {
             <div className="border rounded bg-[rgba(22,22,22,0.7)] border-[rgba(128,128,128,0.7)] text-transparent absolute flex justify-center left-0 top-0 right-0 bottom-0 z-[-1] select-none"></div>
           </div>
         </div>
-        <button className="mt-[1rem] appearance-none items-center inline-flex box-border justify-center select-none border-0 rounded cursor-pointer leading-none relative w-auto font-medium text-[1.125rem] min-h-[3rem] py-[0.5rem] px-[1rem] bg-primary text-white md:flex-shrink-0 md:flex-grow-0 md:basis-auto md:mt-0 md:ml-[0.5rem] md:text-[1.5rem] md:min-h-[3.5rem] md:py-[0.75rem] md:px-[1.5rem]">
+        <NavLink
+          to={"/registration"}
+          className="mt-[1rem] appearance-none items-center inline-flex box-border justify-center select-none border-0 rounded cursor-pointer leading-none relative w-auto font-medium text-[1.125rem] min-h-[3rem] py-[0.5rem] px-[1rem] bg-primary text-white md:flex-shrink-0 md:flex-grow-0 md:basis-auto md:mt-0 md:ml-[0.5rem] md:text-[1.5rem] md:min-h-[3.5rem] md:py-[0.75rem] md:px-[1.5rem]"
+        >
           Commencer
           <div className="inline-block h-[1.5rem]">
             <span>
@@ -57,7 +61,7 @@ const FormEmail = ({ index }: any) => {
               </svg>
             </span>
           </div>
-        </button>
+        </NavLink>
       </div>
     </form>
   );

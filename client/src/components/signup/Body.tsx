@@ -1,4 +1,5 @@
 import LoginForm from "./LoginForm";
+import { NavLink } from "react-router-dom";
 
 const Body = () => {
   return (
@@ -15,13 +16,13 @@ const Body = () => {
             <div>
               <div className="text-[#737373] text-[15px] mt-[16px]">
                 Première visite sur Netflix ? &nbsp;
-                <a
-                  href="#"
+                <NavLink
+                  to={"/"}
                   target="_self"
                   className="text-white hover:underline"
                 >
                   Inscrivez-vous.
-                </a>
+                </NavLink>
               </div>
               <div className="text-gray text-[13px] mt-[11px] relative text-left">
                 <p>
