@@ -5,6 +5,7 @@ import BannerSix from "../components/hero/BannerSix";
 import BannerThree from "../components/hero/BannerThree";
 import BannerTwo from "../components/hero/BannerTwo";
 import Faq from "../components/hero/Faq";
+import Footer from "../components/hero/Footer";
 import Header from "../components/hero/Header";
 
 const Hero = () => {
@@ -18,6 +19,7 @@ const Hero = () => {
       <BannerFive />
       <BannerSix />
       <Faq />
+      <Footer />
     </div>
   );
 };

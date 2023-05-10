@@ -1,4 +1,5 @@
-declare module "*.mp4" {
-  const src: string;
-  export default src;
+export interface Question {
+  question: string;
+  answer: string;
+  showAnswer: boolean;
 }

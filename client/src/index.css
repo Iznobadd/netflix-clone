@@ -84,6 +84,29 @@
   background-size: 100%;
 }
 
+.grid-hero {
+  --grid-layout-gap: 0.75rem;
+  --grid-item--min-width: 10.875rem;
+  --grid-column-count: 4;
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+  );
+  grid-gap: var(--grid-layout-gap);
+}
+
+@media screen and (min-width: 960px) {
+  .grid-hero {
+    --grid-item--min-width: 18.375rem;
+  }
+}
+
 @media screen and (min-width: 740px) {
   .radial-hero {
     background-image: radial-gradient(
