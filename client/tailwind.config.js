@@ -19,6 +19,9 @@ module.exports = {
       fontSize: {
         h1: "32px",
       },
+      backgroundImage: {
+        model_s: "url('./src/assets/images/register-devices.png')",
+      },
     },
   },
   plugins: [],
