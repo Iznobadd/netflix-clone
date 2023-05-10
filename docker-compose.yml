@@ -1,0 +1,45 @@
+services:
+  client:
+    build: ./client
+    volumes:
+      - ./client/src:/app/src
+    ports:
+      - 3000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=development
+  server:
+    build: ./server
+    volumes:
+      - ./server/src:/app/src
+    ports:
+      - 4000:4000
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d netflix_db -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: netflix_db
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    volumes:
+      - netflix-data:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  netflix-data:
