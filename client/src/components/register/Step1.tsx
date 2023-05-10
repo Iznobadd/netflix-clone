@@ -28,7 +28,7 @@ const Step1 = () => {
         </div>
         <div className="max-w-[340px] mt-[24px] mx-auto text-center">
           <NavLink
-            to=""
+            to="/regform"
             className="rounded text-[24px] min-h-[64px] min-w-[110px] py-[20.5px] px-[2em] w-full bg-primary text-white relative border-none box-border cursor-pointer inline-block text-center select-none align-middle"
           >
             Suivant

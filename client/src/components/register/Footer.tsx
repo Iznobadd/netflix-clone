@@ -37,7 +37,10 @@ const Footer = () => {
       <div className="mx-auto pt-[30px] w-[90%]">
         <p className="mb-[30px]">
           Des questions ? Appelez le
-          <a href="tel:(+33) 0805-543-063"> (+33) 0805-543-063</a>
+          <a href="tel:(+33) 0805-543-063" className="hover:underline">
+            {" "}
+            (+33) 0805-543-063
+          </a>
         </p>
         <ul className="box-border text-[13px] max-w-[1000px]">
           {links.map((link, index) => (
@@ -45,7 +48,7 @@ const Footer = () => {
               key={index}
               className="w-1/2 box-border inline-block mb-[16px] min-w-[100px] pr-[12px] align-top sm:w-1/3 md:w-1/4"
             >
-              <NavLink to={link.url} className="text-[#737373]">
+              <NavLink to={link.url} className="text-[#737373] hover:underline">
                 <span>{link.name}</span>
               </NavLink>
             </li>
