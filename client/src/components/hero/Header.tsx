@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   return (
     <header className="relative z-[1] block">
@@ -68,12 +70,12 @@ const Header = () => {
         </span>
 
         <span className="mr-0 ml-[0.25rem] lg:ml-[0.75rem]">
-          <a
-            href="#"
+          <NavLink
+            to={"/signup"}
             className="appearance-none m-0 inline-flex items-center justify-center select-none cursor-pointer rounded bg-primary relative text-[0.875rem] w-auto font-medium min-h-[2rem] py-[0.25rem] px-[1rem] text-white border-0"
           >
             S'identifier
-          </a>
+          </NavLink>
         </span>
       </div>
     </header>

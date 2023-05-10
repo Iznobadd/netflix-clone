@@ -1,17 +1,18 @@
 import { NavLink } from "react-router-dom";
+
 const Header = () => {
   return (
-    <div className="md:bg-gradient-to-b from-black-900 md:to-transparent md:left-0 md:absolute md:top-0 md:w-full bg-none border-0 h-[75px] md:h-[90px] z-[2]">
+    <div className="border-b border-b-[#e6e6e6] bg-white h-[45px] relative md:h-[90px] sm:h-[75px]">
       <NavLink
         to={"/"}
-        className="ml-[3%] leading-[75px] md:leading-[90px] fill-primary inline-block align-middle no-underline bg-transparent"
+        className="ml-[3%] leading-[45px] sm:leading-[75px] md:leading-[90px] fill-primary !inline-block align-middle bg-transparent"
       >
         <svg
           viewBox="0 0 111 30"
-          className="h-[45px] align-middle w-[167px] inline"
           data-uia="netflix-logo"
           aria-hidden="true"
           focusable="false"
+          className="h-[20px] w-[75px] align-middle overflow-hidden sm:h-[45px] sm:w-[167px] inline"
         >
           <g id="netflix-logo">
             <path
@@ -20,6 +21,12 @@ const Header = () => {
             ></path>
           </g>
         </svg>
+      </NavLink>
+      <NavLink
+        to={"/signup"}
+        className="mx-[10px] text-[#333] float-right text-[14px] leading-[45px] sm:mx-[3%] sm:leading-[75px] sm:text-[16px] md:leading-[90px] md:text-[19px] font-medium"
+      >
+        S'identifier
       </NavLink>
     </div>
   );
