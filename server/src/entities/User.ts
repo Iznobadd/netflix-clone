@@ -1,4 +1,4 @@
-import { Field, ObjectType } from "type-graphql";
+import { Field, InputType, ObjectType } from "type-graphql";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -9,11 +9,20 @@ export class User {
   id: string;
 
   @Field()
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Field()
   @Column()
+  password: string;
+}
+
+@InputType()
+export class CreateUserInput {
+  @Field()
+  email: string;
+
+  @Field()
   password: string;
 }
 
