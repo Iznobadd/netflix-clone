@@ -1,3 +1,4 @@
+import { IsEmail } from "class-validator";
 import { Field, InputType, ObjectType } from "type-graphql";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
@@ -19,6 +20,7 @@ export class User {
 
 @InputType()
 export class CreateUserInput {
+  @IsEmail()
   @Field()
   email: string;
 

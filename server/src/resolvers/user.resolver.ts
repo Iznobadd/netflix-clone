@@ -19,7 +19,8 @@ export default class UserResolver {
   // CREATION D'UN UTILISATEUR
   @Mutation(() => User)
   async createUser(
-    @Arg("createUserInput") createUserInput: CreateUserInput
+    @Arg("createUserInput")
+    createUserInput: CreateUserInput
   ): Promise<User> {
     const { email, password } = createUserInput;
     return new UserService().create(email, password);
