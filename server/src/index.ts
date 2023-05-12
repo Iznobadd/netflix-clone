@@ -1,13 +1,15 @@
 import { ApolloServer } from "apollo-server";
+import * as dotenv from "dotenv";
 import { ApolloServerPluginLandingPageLocalDefault } from "apollo-server-core";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { datasource } from "./db";
 
+dotenv.config();
+
 async function start() {
   const schema = await buildSchema({
     resolvers: [__dirname + "/resolvers/**/*.ts"],
-    validate: false,
   });
 
   const server = new ApolloServer({
@@ -15,6 +17,7 @@ async function start() {
     csrfPrevention: true,
     cache: "bounded",
     plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
+    context: () => ({}),
   });
 
   server.listen().then(async ({ url }) => {
