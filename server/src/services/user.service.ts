@@ -1,8 +1,9 @@
 import { datasource } from "src/db";
 import User from "src/entities/User";
-import { IService } from "src/interfaces";
+import { ILogin, IService, ITokenParams } from "src/interfaces";
 import { Repository } from "typeorm";
 import * as bcrypt from "bcrypt";
+import * as jwt from "jsonwebtoken";
 export default class UserService implements IService {
   db: Repository<User>;
 
@@ -52,6 +53,48 @@ export default class UserService implements IService {
       const user = await this.db.findOne({ where: { email } });
       if (!user) return false;
       throw new Error("Votre email existe déjà");
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  // GENERER UN TOKEN
+  async generateToken(params: ITokenParams) {
+    try {
+      return jwt.sign(params, `${process.env.JWT_KEY}`, {
+        expiresIn: "1h",
+      });
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  // RECUPERER PAYLOAD DU TOKEN
+  async getPayload(token: string) {
+    try {
+      return jwt.verify(token, `${process.env.JWT_KEY}`);
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  // LOGIN
+  async login({ email, password }: ILogin) {
+    try {
+      const user = await this.findByEmail(email);
+      if (!user) throw new Error("Utilisateur introuvable");
+      const isValidPassword = await this.checkPassword(password, user.password);
+      if (!isValidPassword) throw new Error("Mot de passe incorrect");
+      const token = await this.generateToken({ email });
+      return token;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async checkPassword(password: string, hashPassword: string) {
+    try {
+      return bcrypt.compareSync(password, hashPassword);
     } catch (err) {
       throw new Error(err);
     }

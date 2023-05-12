@@ -1,4 +1,4 @@
-import User, { CreateUserInput } from "src/entities/User";
+import User, { CreateUserInput, LoginInput } from "src/entities/User";
 import UserService from "src/services/user.service";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 
@@ -14,6 +14,13 @@ export default class UserResolver {
   @Query(() => [User])
   async findAllUsers(): Promise<User[]> {
     return new UserService().findAll();
+  }
+
+  // LOGIN D'UN UTILISATEUR
+  @Query(() => String)
+  async login(@Arg("loginInput") loginInput: LoginInput): Promise<string> {
+    const { email, password } = loginInput;
+    return new UserService().login({ email, password });
   }
 
   // CREATION D'UN UTILISATEUR
