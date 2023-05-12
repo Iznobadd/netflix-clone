@@ -28,4 +28,14 @@ export class CreateUserInput {
   password: string;
 }
 
+@InputType()
+export class LoginInput {
+  @IsEmail()
+  @Field()
+  email: string;
+
+  @Field()
+  password: string;
+}
+
 export default User;
