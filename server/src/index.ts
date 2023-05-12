@@ -8,6 +8,17 @@ import UserService from "./services/user.service";
 
 dotenv.config();
 
+const corsConfig =
+  process.env.NODE_ENV !== "production"
+    ? {
+        origin: ["http://localhost:3000", "https://studio.apollographql.com"],
+        credentials: true,
+      }
+    : {
+        origin: "",
+        credentials: true,
+      };
+
 async function start() {
   const schema = await buildSchema({
     resolvers: [__dirname + "/resolvers/**/*.ts"],
@@ -17,6 +28,7 @@ async function start() {
     schema,
     csrfPrevention: true,
     cache: "bounded",
+    cors: corsConfig,
     plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
     context: async ({ req }) => {
       let user = null;
@@ -29,6 +41,7 @@ async function start() {
           user = await new UserService().findByEmail(email);
         }
       }
+
       return { user };
     },
   });

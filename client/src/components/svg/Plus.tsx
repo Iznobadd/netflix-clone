@@ -9,8 +9,8 @@ const Plus = () => {
       data-name="Add"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M11 2V11H2V13H11V22H13V13H22V11H13V2H11Z"
         fill="currentColor"
       ></path>
