@@ -3,11 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+
+const httpLink = createHttpLink({
+  uri: "http://localhost:4000/graphql",
+});
 
 const client = new ApolloClient({
-  uri: process.env.APP_GRAPHQL_URI,
-  credentials: "include",
+  link: httpLink,
   cache: new InMemoryCache({
     addTypename: false,
   }),
