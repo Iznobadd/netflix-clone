@@ -1,14 +1,6 @@
-import { sign } from "jsonwebtoken";
 import User, { CreateUserInput, LoginInput } from "src/entities/User";
 import UserService from "src/services/user.service";
-import {
-  Arg,
-  Ctx,
-  Mutation,
-  Query,
-  Resolver,
-  UseMiddleware,
-} from "type-graphql";
+import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
 
 @Resolver()
 export default class UserResolver {

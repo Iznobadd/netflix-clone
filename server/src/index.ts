@@ -4,7 +4,6 @@ import { ApolloServerPluginLandingPageLocalDefault } from "apollo-server-core";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { datasource } from "./db";
-import UserService from "./services/user.service";
 import { parse as parseCookie } from "cookie";
 import { JwtPayload, verify } from "jsonwebtoken";
 
