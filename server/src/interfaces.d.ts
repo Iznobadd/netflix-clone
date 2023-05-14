@@ -10,3 +10,11 @@ export interface ILogin {
   email: string;
   password: string;
 }
+
+export interface IAuthMiddleware {
+  req: {
+    cookies: {
+      token?: string;
+    };
+  };
+}

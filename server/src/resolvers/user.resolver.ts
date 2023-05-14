@@ -1,6 +1,14 @@
+import { sign } from "jsonwebtoken";
 import User, { CreateUserInput, LoginInput } from "src/entities/User";
 import UserService from "src/services/user.service";
-import { Arg, Mutation, Query, Resolver } from "type-graphql";
+import {
+  Arg,
+  Ctx,
+  Mutation,
+  Query,
+  Resolver,
+  UseMiddleware,
+} from "type-graphql";
 
 @Resolver()
 export default class UserResolver {
@@ -17,10 +25,22 @@ export default class UserResolver {
   }
 
   // LOGIN D'UN UTILISATEUR
-  @Query(() => String)
-  async login(@Arg("loginInput") loginInput: LoginInput): Promise<string> {
+  @Mutation(() => String)
+  async login(
+    @Arg("loginInput") loginInput: LoginInput,
+    @Ctx() { res }: any
+  ): Promise<string> {
     const { email, password } = loginInput;
-    return new UserService().login({ email, password });
+    const user = await new UserService().findByEmail(email);
+    if (!user) throw new Error("Utilisateur introuvable");
+    const isValidPassword = await new UserService().checkPassword(
+      password,
+      user.password
+    );
+    if (!isValidPassword) throw new Error("Mot de passe incorrect");
+    const token = await new UserService().generateToken({ email: user.email });
+    res.setHeader("Set-Cookie", `jwt=${token}; HttpOnly; Path=/; Max-Age=3600`);
+    return token;
   }
 
   // CREATION D'UN UTILISATEUR

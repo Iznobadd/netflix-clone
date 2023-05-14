@@ -4,6 +4,7 @@ import { ILogin, IService, ITokenParams } from "src/interfaces";
 import { Repository } from "typeorm";
 import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
+import { sign } from "jsonwebtoken";
 export default class UserService implements IService {
   db: Repository<User>;
 
@@ -61,7 +62,7 @@ export default class UserService implements IService {
   // GENERER UN TOKEN
   async generateToken(params: ITokenParams) {
     try {
-      return jwt.sign(params, `${process.env.JWT_KEY}`, {
+      return sign(params, `${process.env.JWT_KEY}`, {
         expiresIn: "1h",
       });
     } catch (err) {
