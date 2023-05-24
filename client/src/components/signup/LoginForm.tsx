@@ -1,18 +1,91 @@
+import { useEffect, useState } from "react";
+
 const LoginForm = () => {
-  function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
+  const [form, setForm] = useState({
+    email: "",
+    pwd: "",
+  });
+
+  const [formError, setFormError] = useState({
+    emailError: false,
+    passwordError: false,
+    emailMessage: "",
+    passwordMessage: "",
+  });
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>): void => {
     const label = document.querySelector(`label[for='${event.target.id}']`);
     label?.classList.add("focused");
-  }
+  };
 
-  function handleBlur(event: React.FocusEvent<HTMLInputElement>): void {
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const isValidPassword = (password: string): boolean => {
+    if (password.length < 4 || password.length > 60) {
+      return false;
+    }
+    return true;
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setForm({
+      ...form,
+      [event.target.id]: event.target.value,
+    });
+    if (event.target.id === "email") {
+      if (!isValidEmail(event.target.value)) {
+        setFormError({
+          ...formError,
+          emailError: true,
+          emailMessage:
+            "Veuillez entrer une adresse e-mail ou un numéro de téléphone valide.",
+        });
+      } else {
+        setFormError({
+          ...formError,
+          emailError: false,
+          emailMessage: "",
+        });
+      }
+    }
+    if (event.target.id === "pwd") {
+      if (!isValidPassword(event.target.value)) {
+        setFormError((prevFormError) => ({
+          ...prevFormError,
+          passwordError: true,
+          passwordMessage:
+            "Votre mot de passe doit contenir entre 4 et 60 caractères.",
+        }));
+      } else {
+        setFormError((prevFormError) => ({
+          ...prevFormError,
+          passwordError: false,
+          passwordMessage: "",
+        }));
+      }
+    }
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
     const label = document.querySelector(`label[for='${event.target.id}']`);
     if (label && event.target.value === "") {
       label?.classList.remove("focused");
     }
-  }
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+
+    if (formError.emailError || formError.passwordError) {
+      return;
+    }
+    console.log(form);
+  };
 
   return (
-    <form action="">
+    <form action="" onSubmit={handleSubmit}>
       <div className="pb-[16px] max-w-full relative">
         <div className="relative">
           <div className="relative border-0 rounded">
@@ -21,6 +94,8 @@ const LoginForm = () => {
                 type="text"
                 className="bg-input border-0 rounded text-white h-[50px] leading-[50px] px-[20px] pt-[16px] w-full box-border block text-[16px]"
                 id="email"
+                value={form.email}
+                onChange={handleChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
               />
@@ -34,15 +109,22 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
+      {formError.emailMessage && (
+        <div className="text-[13px] text-orange-500 mb-[16px]">
+          {formError.emailMessage}
+        </div>
+      )}
 
       <div className="pb-[16px] max-w-full relative">
         <div className="relative">
           <div className="relative border-0 rounded">
             <label>
               <input
-                type="text"
+                type="password"
                 className="bg-input border-0 rounded text-white h-[50px] leading-[50px] px-[20px] pt-[16px] w-full box-border block text-[16px]"
                 id="pwd"
+                value={form.pwd}
+                onChange={handleChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
               />
@@ -56,6 +138,12 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
+
+      {formError.passwordMessage && (
+        <div className="text-[13px] text-orange-500 mb-[16px]">
+          {formError.passwordMessage}
+        </div>
+      )}
 
       <button className="rounded text-[16px] font-medium mt-[24px] mb-[12px] max-w-full w-full p-[16px] bg-primary inline-block min-h-[37px] min-w-[98px] relative text-white text-center align-middle">
         S'identifier

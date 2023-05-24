@@ -7,7 +7,7 @@ const Body = () => {
       <div className="mx-auto px-[5%] bg-transparent md:mb-[-236px] md:max-w-[586px] md:min-h-screen md:before:block md:before:h-[91px] md:after:block md:after:h-[236px]">
         <div>
           <div className="min-h-[550px] bg-black/75 rounded box-border flex flex-col m-0 pt-[20px] pb-[30px] w-full md:min-h-[660px] md:w-[450px] md:mb-[90px] md:px-[68px] md:pt-[60px] md:pb-[40px]">
-            <div className="grow max-h-[350px]">
+            <div className="">
               <h1 className="text-white text-h1 font-medium mb-[28px]">
                 S'identifier
               </h1>
