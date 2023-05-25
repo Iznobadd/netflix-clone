@@ -90,8 +90,11 @@ const Footer = () => {
         <div className="py-[0.75rem]">
           <div className="grid box-border grid-rows-[auto] min-w-[10.875rem] lg:min-w-[18.375rem] gap-y-3">
             <ul className="py-[0.75rem] leading-[1.3125rem] grid-hero">
-              {footerMenu.map((item) => (
-                <li className="text-white/70 box-border w-full underline text-[0.875rem] min-w-[174px] lg:min-w-[294px]">
+              {footerMenu.map((item, key) => (
+                <li
+                  className="text-white/70 box-border w-full underline text-[0.875rem] min-w-[174px] lg:min-w-[294px]"
+                  key={key}
+                >
                   <a
                     href={item.link}
                     className="appearance-none text-white/70 underline select-text"
@@ -145,8 +148,8 @@ const Footer = () => {
                   aria-hidden="true"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M12.5225 5.99902C12.6801 5.99902 12.7497 6.19745 12.6266 6.29589L8.20687 9.83168C8.08511 9.92909 7.9121 9.92909 7.79034 9.83168L3.37059 6.29589C3.24755 6.19745 3.31715 5.99902 3.47473 5.99902H12.5225Z"
                     fill="currentColor"
                   ></path>

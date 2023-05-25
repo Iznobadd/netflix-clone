@@ -1,8 +1,25 @@
-import { NavLink } from "react-router-dom";
 import { handleBlur, handleFocus } from "../../utils/functions";
+import { useDispatch, useSelector } from "react-redux";
+import { saveEmail } from "../../store/emailSlice";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const FormEmail = ({ index }: any) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    dispatch(saveEmail(email));
+    navigate("/registration");
+  };
+
+  const handleChange = (e: any) => {
+    setEmail(e.target.value);
+  };
+
   return (
-    <form className="flex flex-col">
+    <form className="flex flex-col" onSubmit={handleSubmit}>
       <h3 className="m-0 text-[1.125rem] leading-[1.6875rem] lg:text-[1.25rem] lg:leading-[1.875rem]">
         Prêt à regarder Netflix ? Saisissez votre adresse e-mail pour vous
         abonner ou réactiver votre abonnement.
@@ -19,6 +36,8 @@ const FormEmail = ({ index }: any) => {
             <input
               type="text"
               name="email"
+              value={email}
+              onChange={handleChange}
               id={`email${index}`}
               className="w-full text-transparent text-white leading-[1.5rem] px-[1rem] pt-[1.25rem] md:pt-[1.5rem] md:pb-[0.5rem] pb-[0.25rem] min-h-[16px] min-w-[16px] appearance-none bg-transparent border-0 m-0"
               onFocus={(event) => handleFocus(event, "focused-hero")}
@@ -27,8 +46,8 @@ const FormEmail = ({ index }: any) => {
             <div className="border rounded bg-[rgba(22,22,22,0.7)] border-[rgba(128,128,128,0.7)] text-transparent absolute flex justify-center left-0 top-0 right-0 bottom-0 z-[-1] select-none"></div>
           </div>
         </div>
-        <NavLink
-          to={"/registration"}
+        <button
+          type="submit"
           className="mt-[1rem] appearance-none items-center inline-flex box-border justify-center select-none border-0 rounded cursor-pointer leading-none relative w-auto font-medium text-[1.125rem] min-h-[3rem] py-[0.5rem] px-[1rem] bg-primary text-white md:flex-shrink-0 md:flex-grow-0 md:basis-auto md:mt-0 md:ml-[0.5rem] md:text-[1.5rem] md:min-h-[3.5rem] md:py-[0.75rem] md:px-[1.5rem]"
         >
           Commencer
@@ -51,7 +70,7 @@ const FormEmail = ({ index }: any) => {
               </svg>
             </span>
           </div>
-        </NavLink>
+        </button>
       </div>
     </form>
   );

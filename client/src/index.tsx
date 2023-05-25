@@ -9,6 +9,8 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:4000/graphql",
@@ -26,9 +28,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </Provider>
   </React.StrictMode>
 );
 

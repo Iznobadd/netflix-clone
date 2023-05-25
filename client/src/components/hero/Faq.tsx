@@ -13,8 +13,7 @@ const Faq = () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => setQuestions(data))
-      .then((error) => console.error(error));
+      .then((data) => setQuestions(data));
   }, []);
 
   function showAnswer(index: number) {
@@ -35,7 +34,7 @@ const Faq = () => {
           <div className="mt-[1.5rem]">
             <ul className="text-[1.125rem] lg:text-[1.5rem]">
               {questions.map((item, index) => (
-                <li className="mb-[0.5rem]">
+                <li className="mb-[0.5rem]" key={index}>
                   <h3 className="flex mb-[0.0.625rem] relative bg-[rgba(45,45,45,1)] text-white ">
                     <button
                       className="p-[1.5rem] appearance-none bg-none rounded-none w-full cursor-pointer flex justify-between items-center text-left"

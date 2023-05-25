@@ -170,9 +170,9 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0 -8.70201 48.2567 0 48 86.604)"
         >
-          <stop offset="0.286" stop-color="#7D2889"></stop>
-          <stop offset="0.724" stop-color="#FF66D9" stop-opacity="0.41"></stop>
-          <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+          <stop offset="0.286" stopColor="#7D2889"></stop>
+          <stop offset="0.724" stopColor="#FF66D9" stopOpacity="0.41"></stop>
+          <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="b"
@@ -182,9 +182,9 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0 -38.3681 48.2567 0 48 39.155)"
         >
-          <stop stop-color="#FFCA45"></stop>
-          <stop offset="0.453" stop-color="#FF66D9" stop-opacity="0.36"></stop>
-          <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+          <stop stopColor="#FFCA45"></stop>
+          <stop offset="0.453" stopColor="#FF66D9" stopOpacity="0.36"></stop>
+          <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="c"
@@ -194,9 +194,9 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(180 23.41 39.738) scale(37.7705)"
         >
-          <stop offset="0.432" stop-color="#FF8B54"></stop>
-          <stop offset="0.76" stop-color="#FFBB8D"></stop>
-          <stop offset="1" stop-color="#F9DDD1"></stop>
+          <stop offset="0.432" stopColor="#FF8B54"></stop>
+          <stop offset="0.76" stopColor="#FFBB8D"></stop>
+          <stop offset="1" stopColor="#F9DDD1"></stop>
         </radialGradient>
         <radialGradient
           id="d"
@@ -206,9 +206,9 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0 -10.623 28.257 0 47.607 27.934)"
         >
-          <stop offset="0.302" stop-color="#F9DDD1"></stop>
-          <stop offset="0.674" stop-color="#FFBB8D"></stop>
-          <stop offset="1" stop-color="#FF8B54"></stop>
+          <stop offset="0.302" stopColor="#F9DDD1"></stop>
+          <stop offset="0.674" stopColor="#FFBB8D"></stop>
+          <stop offset="1" stopColor="#FF8B54"></stop>
         </radialGradient>
         <radialGradient
           id="e"
@@ -218,8 +218,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 8.042 37.99) scale(7.03568)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="f"
@@ -229,8 +229,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 8.112 35.56) scale(4.81389)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="g"
@@ -240,8 +240,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 5.358 36.74) scale(4.81389)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="h"
@@ -251,8 +251,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -3.298 30.445) scale(4.81389)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="i"
@@ -262,8 +262,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -.544 30.839) scale(4.81389)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="j"
@@ -273,8 +273,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -2.442 32.737) scale(2.59209)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="k"
@@ -284,8 +284,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 19.985 53.59) scale(2.59209)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="l"
@@ -295,8 +295,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 19.614 57.107) scale(1.85149)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="m"
@@ -306,8 +306,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 17.994 54.792) scale(3.33269)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="n"
@@ -317,8 +317,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 18.41 40.212) scale(2.59209)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="o"
@@ -328,8 +328,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 14.5 33.894) scale(1.8515)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="p"
@@ -339,8 +339,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 6.63 28.386) scale(1.85149)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="q"
@@ -350,8 +350,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 16.768 45.003) scale(4.81389)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="r"
@@ -361,8 +361,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 15.194 41.855) scale(4.81389)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="s"
@@ -372,8 +372,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 15.194 44.216) scale(4.81389)"
         >
-          <stop offset="0.375" stop-color="#FFF4EB"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#FFF4EB"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="w"
@@ -383,8 +383,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -31.927 48.845) scale(1.8515)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="x"
@@ -394,8 +394,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -34.681 48.452) scale(1.8515)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="y"
@@ -405,8 +405,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -33.5 49.632) scale(1.8515)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="z"
@@ -416,8 +416,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -32.714 51.993) scale(1.85149)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="A"
@@ -427,8 +427,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -.845 83.075) scale(1.85149)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="B"
@@ -438,8 +438,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 .718 81.118) scale(2.2218)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="C"
@@ -449,8 +449,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -1.25 79.151) scale(2.2218)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="D"
@@ -460,8 +460,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -2.048 77.196) scale(2.5921)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="E"
@@ -471,8 +471,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90 -31.95 50.442) scale(2.5921)"
         >
-          <stop offset="0.375" stop-color="#F9DDD1"></stop>
-          <stop offset="1" stop-color="#FFF3EB" stop-opacity="0"></stop>
+          <stop offset="0.375" stopColor="#F9DDD1"></stop>
+          <stop offset="1" stopColor="#FFF3EB" stopOpacity="0"></stop>
         </radialGradient>
         <radialGradient
           id="F"
@@ -482,8 +482,8 @@ const Popcorn = () => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(111.038 9.116 68.506) scale(5.48002)"
         >
-          <stop stop-color="#FDF7F2"></stop>
-          <stop offset="1" stop-color="#FFD8BD"></stop>
+          <stop stopColor="#FDF7F2"></stop>
+          <stop offset="1" stopColor="#FFD8BD"></stop>
         </radialGradient>
         <linearGradient
           id="t"
@@ -493,9 +493,9 @@ const Popcorn = () => {
           y2="21.046"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E0B1CC"></stop>
-          <stop offset="0.431" stop-color="#FFF1F1"></stop>
-          <stop offset="1" stop-color="#FFC9A5"></stop>
+          <stop stopColor="#E0B1CC"></stop>
+          <stop offset="0.431" stopColor="#FFF1F1"></stop>
+          <stop offset="1" stopColor="#FFC9A5"></stop>
         </linearGradient>
         <linearGradient
           id="u"
@@ -505,8 +505,8 @@ const Popcorn = () => {
           y2="53.115"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D16AE9"></stop>
-          <stop offset="1" stop-color="#FF661D"></stop>
+          <stop stopColor="#D16AE9"></stop>
+          <stop offset="1" stopColor="#FF661D"></stop>
         </linearGradient>
         <linearGradient
           id="v"
@@ -516,9 +516,9 @@ const Popcorn = () => {
           y2="85.621"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF661D"></stop>
-          <stop offset="0.5" stop-color="#CE3A00"></stop>
-          <stop offset="1" stop-color="#A60A5E"></stop>
+          <stop stopColor="#FF661D"></stop>
+          <stop offset="0.5" stopColor="#CE3A00"></stop>
+          <stop offset="1" stopColor="#A60A5E"></stop>
         </linearGradient>
       </defs>
     </svg>
