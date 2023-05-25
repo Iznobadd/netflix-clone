@@ -1,11 +1,101 @@
-import { NavLink } from "react-router-dom";
-import { handleBlur, handleFocus } from "../../utils/functions";
+import {
+  handleBlur,
+  handleFocus,
+  isValidEmail,
+  isValidPassword,
+} from "../../utils/functions";
+import { useSelector } from "react-redux";
+import { useEffect, useRef, useState } from "react";
+import { useMutation } from "@apollo/client";
+import { REGISTER } from "../../services/auth.query";
 
 const StepForm = () => {
+  const inputFocus = useRef<HTMLInputElement | null>(null);
+  const emailSave = useSelector((state: any) => state.email);
+
+  const [register] = useMutation(REGISTER);
+
+  const [form, setForm] = useState({
+    email: emailSave,
+    pwd: "",
+  });
+  const [formError, setFormError] = useState({
+    emailError: true,
+    emailMessage: "",
+    passwordError: true,
+    passwordMessage: "",
+  });
+  useEffect(() => {
+    if (inputFocus.current) inputFocus.current.focus();
+  }, []);
+
+  const handleChange = (e: any) => {
+    setForm({
+      ...form,
+      [e.target.id]: e.target.value,
+    });
+
+    if (e.target.id === "email") {
+      if (!isValidEmail(e.target.value)) {
+        setFormError({
+          ...formError,
+          emailError: true,
+          emailMessage: "Veuillez saisir une adresse e-mail valide.",
+        });
+      } else {
+        setFormError({
+          ...formError,
+          emailError: false,
+          emailMessage: "",
+        });
+      }
+    }
+
+    if (e.target.id === "pwd") {
+      if (!isValidPassword(e.target.value)) {
+        setFormError({
+          ...formError,
+          passwordError: true,
+          passwordMessage:
+            "Votre mot de passe doit contenir entre 4 et 60 caractères.",
+        });
+      } else {
+        setFormError({
+          ...formError,
+          passwordError: false,
+          passwordMessage: "",
+        });
+      }
+    }
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (formError.emailError || formError.passwordError) {
+      return;
+    }
+
+    try {
+      const response = await register({
+        variables: {
+          createUserInput: {
+            email: form.email,
+            password: form.pwd,
+          },
+        },
+      });
+      console.log(response);
+    } catch (error) {
+      // RETOURNER UNE PAGE 500
+      console.log("register error", error);
+
+      return error;
+    }
+  };
   return (
     <div className="pb-[95px] flex-grow bg-white overflow-hidden w-full">
       <div className="px-[32px] pt-[20px] pb-[60px] block overflow-hidden box-border mx-auto mb-[15px] max-w-[978px]">
-        <form action="">
+        <form onSubmit={handleSubmit} action="">
           <div className="mx-auto max-w-[440px] text-left">
             <div>
               <div className="mt-[20px] inline-block">
@@ -31,8 +121,15 @@ const StepForm = () => {
                       <label>
                         <input
                           type="email"
+                          ref={inputFocus}
+                          value={form.email}
+                          onChange={handleChange}
                           id="email"
-                          className="h-[60px] pt-[10px] px-[10px] w-full border appearance-none border-[#5fa53f] rounded-sm box-border text-black block text-[16px]"
+                          className={`${
+                            formError.emailMessage
+                              ? "border-[#b92d2b]"
+                              : "border-[#5fa53f]"
+                          } h-[60px] pt-[10px] px-[10px] w-full border appearance-none rounded-sm box-border text-black block text-[16px]`}
                           onFocus={(event) => handleFocus(event, "focused")}
                           onBlur={(event) => handleBlur(event, "focused")}
                         />
@@ -44,6 +141,11 @@ const StepForm = () => {
                         </label>
                       </label>
                     </div>
+                    {formError.emailMessage && (
+                      <div className="text-[#b92d2b] text-[13px]">
+                        {formError.emailMessage}
+                      </div>
+                    )}
                   </div>
                 </li>
                 <li className="mb-[10px]">
@@ -53,7 +155,13 @@ const StepForm = () => {
                         <input
                           id="pwd"
                           type="password"
-                          className="h-[60px] pt-[10px] px-[10px] w-full border appearance-none border-[#5fa53f] rounded-sm box-border text-black block text-[16px]"
+                          value={form.pwd}
+                          onChange={handleChange}
+                          className={`${
+                            formError.passwordMessage
+                              ? "border-[#b92d2b]"
+                              : "border-[#5fa53f]"
+                          } h-[60px] pt-[10px] px-[10px] w-full border appearance-none  rounded-sm box-border text-black block text-[16px]`}
                           onFocus={(event) => handleFocus(event, "focused")}
                           onBlur={(event) => handleBlur(event, "focused")}
                         />
@@ -65,6 +173,11 @@ const StepForm = () => {
                         </label>
                       </label>
                     </div>
+                    {formError.passwordMessage && (
+                      <div className="text-[#b92d2b] text-[13px]">
+                        {formError.passwordMessage}
+                      </div>
+                    )}
                   </div>
                 </li>
                 <li className="mb-[10px]">
@@ -87,12 +200,12 @@ const StepForm = () => {
             </div>
           </div>
           <div className="max-w-[440px] mt-[24px] mx-auto text-center">
-            <NavLink
-              to="/regform"
+            <button
+              type="submit"
               className="rounded text-[24px] min-h-[64px] min-w-[110px] py-[20.5px] px-[2em] w-full bg-primary text-white relative border-none box-border cursor-pointer inline-block text-center select-none align-middle"
             >
               Suivant
-            </NavLink>
+            </button>
           </div>
         </form>
       </div>

@@ -1,21 +1,39 @@
-import { handleBlur, handleFocus } from "../../utils/functions";
-import { useDispatch, useSelector } from "react-redux";
+import { handleBlur, handleFocus, isValidEmail } from "../../utils/functions";
+import { useDispatch } from "react-redux";
 import { saveEmail } from "../../store/emailSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Error from "../svg/Error";
 const FormEmail = ({ index }: any) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState({
+    error: true,
+    message: "",
+  });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (emailError.error) return;
+
     dispatch(saveEmail(email));
     navigate("/registration");
   };
 
   const handleChange = (e: any) => {
     setEmail(e.target.value);
+    if (!isValidEmail(e.target.value)) {
+      setEmailError({
+        error: true,
+        message: "Veuillez saisir une adresse e-mail valide.",
+      });
+    } else {
+      setEmailError({
+        error: false,
+        message: "",
+      });
+    }
   };
 
   return (
@@ -43,8 +61,20 @@ const FormEmail = ({ index }: any) => {
               onFocus={(event) => handleFocus(event, "focused-hero")}
               onBlur={(event) => handleBlur(event, "focused-hero")}
             />
-            <div className="border rounded bg-[rgba(22,22,22,0.7)] border-[rgba(128,128,128,0.7)] text-transparent absolute flex justify-center left-0 top-0 right-0 bottom-0 z-[-1] select-none"></div>
+            <div
+              className={`${
+                emailError.message
+                  ? "border-[rgb(235,57,66)]"
+                  : " border-[rgba(128,128,128,0.7)]"
+              } border rounded bg-[rgba(22,22,22,0.7)] text-transparent absolute flex justify-center left-0 top-0 right-0 bottom-0 z-[-1] select-none`}
+            ></div>
           </div>
+          {emailError.message && (
+            <div className="text-[0.8125rem] text-[rgb(235,57,66)] mt-[0.25rem] w-full">
+              <Error />
+              {emailError.message}
+            </div>
+          )}
         </div>
         <button
           type="submit"

@@ -10,7 +10,7 @@ import {
 } from "../../utils/functions";
 
 const LoginForm = () => {
-  const [login, { loading, error }] = useMutation(LOGIN);
+  const [login] = useMutation(LOGIN);
   const [form, setForm] = useState({
     email: "",
     pwd: "",
@@ -22,8 +22,8 @@ const LoginForm = () => {
   });
 
   const [formError, setFormError] = useState({
-    emailError: false,
-    passwordError: false,
+    emailError: true,
+    passwordError: true,
     emailMessage: "",
     passwordMessage: "",
   });
