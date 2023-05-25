@@ -2,6 +2,12 @@ import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { LOGIN } from "../../services/auth.query";
 import Cookies from "js-cookie";
+import {
+  handleBlur,
+  handleFocus,
+  isValidEmail,
+  isValidPassword,
+} from "../../utils/functions";
 
 const LoginForm = () => {
   const [login, { loading, error }] = useMutation(LOGIN);
@@ -21,22 +27,6 @@ const LoginForm = () => {
     emailMessage: "",
     passwordMessage: "",
   });
-  const handleFocus = (event: React.FocusEvent<HTMLInputElement>): void => {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    label?.classList.add("focused");
-  };
-
-  const isValidEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const isValidPassword = (password: string): boolean => {
-    if (password.length < 4 || password.length > 60) {
-      return false;
-    }
-    return true;
-  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setForm({
@@ -74,13 +64,6 @@ const LoginForm = () => {
           passwordMessage: "",
         }));
       }
-    }
-  };
-
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    if (label && event.target.value === "") {
-      label?.classList.remove("focused");
     }
   };
 
@@ -157,8 +140,8 @@ const LoginForm = () => {
                   id="email"
                   value={form.email}
                   onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  onFocus={(event) => handleFocus(event, "focused")}
+                  onBlur={(event) => handleBlur(event, "focused")}
                 />
                 <label
                   htmlFor="email"
@@ -193,8 +176,8 @@ const LoginForm = () => {
                   id="pwd"
                   value={form.pwd}
                   onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
+                  onFocus={(event) => handleFocus(event, "focused")}
+                  onBlur={(event) => handleBlur(event, "focused")}
                 />
                 <label
                   htmlFor="pwd"

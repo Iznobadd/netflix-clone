@@ -2,17 +2,6 @@ import backgroundImg from "../../assets/images/signup.jpg";
 import FormEmail from "./FormEmail";
 
 const BannerOne = () => {
-  function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    label?.classList.add("focused-hero");
-  }
-
-  function handleBlur(event: React.FocusEvent<HTMLInputElement>): void {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    if (label && event.target.value === "") {
-      label?.classList.remove("focused-hero");
-    }
-  }
   return (
     <div className="relative flex justify-center text-center text-white box-border h-full min-h-[30rem] md:min-h-[32rem] lg:min-h-[43.75rem] pt-[7.5rem] md:pt-[8.5rem] lg:pt-[9.875rem] pb-[2rem] md:pb-[3rem] lg:pb-[4rem]">
       <div className="h-full left-0 absolute top-0 w-full">

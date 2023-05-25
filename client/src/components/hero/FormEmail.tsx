@@ -1,16 +1,6 @@
 import { NavLink } from "react-router-dom";
+import { handleBlur, handleFocus } from "../../utils/functions";
 const FormEmail = ({ index }: any) => {
-  function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    label?.classList.add("focused-hero");
-  }
-
-  function handleBlur(event: React.FocusEvent<HTMLInputElement>): void {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    if (label && event.target.value === "") {
-      label?.classList.remove("focused-hero");
-    }
-  }
   return (
     <form className="flex flex-col">
       <h3 className="m-0 text-[1.125rem] leading-[1.6875rem] lg:text-[1.25rem] lg:leading-[1.875rem]">
@@ -31,8 +21,8 @@ const FormEmail = ({ index }: any) => {
               name="email"
               id={`email${index}`}
               className="w-full text-transparent text-white leading-[1.5rem] px-[1rem] pt-[1.25rem] md:pt-[1.5rem] md:pb-[0.5rem] pb-[0.25rem] min-h-[16px] min-w-[16px] appearance-none bg-transparent border-0 m-0"
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+              onFocus={(event) => handleFocus(event, "focused-hero")}
+              onBlur={(event) => handleBlur(event, "focused-hero")}
             />
             <div className="border rounded bg-[rgba(22,22,22,0.7)] border-[rgba(128,128,128,0.7)] text-transparent absolute flex justify-center left-0 top-0 right-0 bottom-0 z-[-1] select-none"></div>
           </div>

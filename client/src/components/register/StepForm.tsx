@@ -1,17 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { handleBlur, handleFocus } from "../../utils/functions";
 
 const StepForm = () => {
-  function handleFocus(event: React.FocusEvent<HTMLInputElement>): void {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    label?.classList.add("focused");
-  }
-
-  function handleBlur(event: React.FocusEvent<HTMLInputElement>): void {
-    const label = document.querySelector(`label[for='${event.target.id}']`);
-    if (label && event.target.value === "") {
-      label?.classList.remove("focused");
-    }
-  }
   return (
     <div className="pb-[95px] flex-grow bg-white overflow-hidden w-full">
       <div className="px-[32px] pt-[20px] pb-[60px] block overflow-hidden box-border mx-auto mb-[15px] max-w-[978px]">
@@ -43,8 +33,8 @@ const StepForm = () => {
                           type="email"
                           id="email"
                           className="h-[60px] pt-[10px] px-[10px] w-full border appearance-none border-[#5fa53f] rounded-sm box-border text-black block text-[16px]"
-                          onFocus={handleFocus}
-                          onBlur={handleBlur}
+                          onFocus={(event) => handleFocus(event, "focused")}
+                          onBlur={(event) => handleBlur(event, "focused")}
                         />
                         <label
                           htmlFor="email"
@@ -64,8 +54,8 @@ const StepForm = () => {
                           id="pwd"
                           type="password"
                           className="h-[60px] pt-[10px] px-[10px] w-full border appearance-none border-[#5fa53f] rounded-sm box-border text-black block text-[16px]"
-                          onFocus={handleFocus}
-                          onBlur={handleBlur}
+                          onFocus={(event) => handleFocus(event, "focused")}
+                          onBlur={(event) => handleBlur(event, "focused")}
                         />
                         <label
                           htmlFor="pwd"
