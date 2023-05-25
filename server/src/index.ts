@@ -41,7 +41,6 @@ async function start() {
       try {
         const cookies = parseCookie(req.headers.cookie || "");
         const token = cookies.jwt;
-        console.log(token);
 
         if (token) {
           const secret = process.env.JWT_KEY;

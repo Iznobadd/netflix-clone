@@ -31,7 +31,6 @@ export default class UserResolver {
     );
     if (!isValidPassword) throw new Error("Mot de passe incorrect");
     const token = await new UserService().generateToken({ email: user.email });
-    res.setHeader("Set-Cookie", `jwt=${token}; HttpOnly; Path=/; Max-Age=3600`);
     return token;
   }
 
