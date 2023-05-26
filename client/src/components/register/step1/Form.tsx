@@ -3,13 +3,13 @@ import {
   handleFocus,
   isValidEmail,
   isValidPassword,
-} from "../../utils/functions";
+} from "../../../utils/functions";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { REGISTER } from "../../services/auth.query";
+import { REGISTER } from "../../../services/auth.query";
 
-const StepForm = () => {
+const Form = () => {
   const inputFocus = useRef<HTMLInputElement | null>(null);
   const emailSave = useSelector((state: any) => state.email);
 
@@ -213,4 +213,4 @@ const StepForm = () => {
   );
 };
 
-export default StepForm;
+export default Form;

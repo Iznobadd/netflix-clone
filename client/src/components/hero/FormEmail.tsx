@@ -18,7 +18,7 @@ const FormEmail = ({ index }: any) => {
     if (emailError.error) return;
 
     dispatch(saveEmail(email));
-    navigate("/registration");
+    navigate("/register/registration");
   };
 
   const handleChange = (e: any) => {

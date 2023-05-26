@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import bgDevice from "../../assets/images/register-devices.png";
-const Step1 = () => {
+import bgDevice from "../../../assets/images/register-devices.png";
+const Body = () => {
   return (
     <div className="pb-[95px] flex-grow bg-white overflow-hidden w-full">
       <div className="pt-[20px] px-[32px] pb-[60px] block overflow-hidden box-border mx-auto mb-[15px] max-w-[978px]">
@@ -28,7 +28,7 @@ const Step1 = () => {
         </div>
         <div className="max-w-[340px] mt-[24px] mx-auto text-center">
           <NavLink
-            to="/regform"
+            to="/register/regform"
             className="rounded text-[24px] min-h-[64px] min-w-[110px] py-[20.5px] px-[2em] w-full bg-primary text-white relative border-none box-border cursor-pointer inline-block text-center select-none align-middle"
           >
             Suivant
@@ -39,4 +39,4 @@ const Step1 = () => {
   );
 };
 
-export default Step1;
+export default Body;
