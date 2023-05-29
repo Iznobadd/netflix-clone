@@ -8,8 +8,10 @@ import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../../../services/auth.query";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+  const navigate = useNavigate();
   const inputFocus = useRef<HTMLInputElement | null>(null);
   const emailSave = useSelector((state: any) => state.email);
 
@@ -84,7 +86,7 @@ const Form = () => {
           },
         },
       });
-      console.log(response);
+      navigate("/register/choose");
     } catch (error) {
       // RETOURNER UNE PAGE 500
       console.log("register error", error);
