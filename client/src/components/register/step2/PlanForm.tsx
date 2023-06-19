@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Cadenas from "../../svg/Cadenas";
+import { Cadenas } from "../../svg/Cadenas";
 import { BlackCheck, NoCheck, RedCheck, RedNoCheck } from "../../svg/Check";
 import { useState } from "react";
 
