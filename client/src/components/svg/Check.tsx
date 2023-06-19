@@ -63,3 +63,25 @@ export const NoCheck = () => {
     </svg>
   );
 };
+
+export const RedNoCheck = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-[26px] w-[26px] text-[#e50914] self-start overflow-hidden flex-none"
+      data-name="Minus"
+      focusable="false"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 13L-1.74846e-07 13L0 11L24 11L24 13Z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  );
+};
