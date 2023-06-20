@@ -1,6 +1,6 @@
 import { datasource } from "../db";
 import User from "../entities/User";
-import { ILogin, IService } from "../interfaces";
+import { IService } from "../interfaces";
 import { Repository } from "typeorm";
 import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";

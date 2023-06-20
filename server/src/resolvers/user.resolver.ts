@@ -41,7 +41,7 @@ export default class UserResolver {
   @Mutation(() => LoginResponse)
   async login(
     @Arg("loginInput") loginInput: LoginInput,
-    @Ctx() { res }: any
+    @Ctx() {}: any
   ): Promise<LoginResponse> {
     const { email, password } = loginInput;
     const user = await new UserService().findByEmail(email);
