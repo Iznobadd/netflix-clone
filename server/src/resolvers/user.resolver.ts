@@ -1,7 +1,22 @@
-import User, { CreateUserInput, LoginInput } from "src/entities/User";
-import UserService from "src/services/user.service";
-import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
+import User, { CreateUserInput, LoginInput } from "../entities/User";
+import UserService from "../services/user.service";
+import {
+  Arg,
+  Ctx,
+  Field,
+  Mutation,
+  ObjectType,
+  Query,
+  Resolver,
+  UseMiddleware,
+} from "type-graphql";
+import { isAuth } from "src/middlewares/isAuth";
 
+@ObjectType()
+class LoginResponse {
+  @Field()
+  accessToken: string;
+}
 @Resolver()
 export default class UserResolver {
   // RECUPERE UN UTILISATEUR PAR SON EMAIL
@@ -16,12 +31,18 @@ export default class UserResolver {
     return new UserService().findAll();
   }
 
+  @UseMiddleware(isAuth)
+  @Query(() => String)
+  async hello(@Ctx() { payload }: any) {
+    return `Hello ${payload.email}`;
+  }
+
   // LOGIN D'UN UTILISATEUR
-  @Mutation(() => String)
+  @Mutation(() => LoginResponse)
   async login(
     @Arg("loginInput") loginInput: LoginInput,
     @Ctx() { res }: any
-  ): Promise<string> {
+  ): Promise<LoginResponse> {
     const { email, password } = loginInput;
     const user = await new UserService().findByEmail(email);
     if (!user) throw new Error("Utilisateur introuvable");
@@ -30,8 +51,10 @@ export default class UserResolver {
       user.password
     );
     if (!isValidPassword) throw new Error("Mot de passe incorrect");
-    const token = await new UserService().generateToken({ email: user.email });
-    return token;
+
+    return {
+      accessToken: await new UserService().createAccessToken(user),
+    };
   }
 
   // CREATION D'UN UTILISATEUR

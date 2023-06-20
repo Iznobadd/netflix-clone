@@ -1,10 +1,9 @@
-import { datasource } from "src/db";
-import User from "src/entities/User";
-import { ILogin, IService, ITokenParams } from "src/interfaces";
+import { datasource } from "../db";
+import User from "../entities/User";
+import { ILogin, IService } from "../interfaces";
 import { Repository } from "typeorm";
 import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
-import { sign } from "jsonwebtoken";
 export default class UserService implements IService {
   db: Repository<User>;
 
@@ -17,7 +16,10 @@ export default class UserService implements IService {
     try {
       const hashPassword = await bcrypt.hashSync(password, 10);
       await this.isEmailExist(email);
-      const user = await this.db.create({ email, password: hashPassword });
+      const user = await this.db.create({
+        email,
+        password: hashPassword,
+      });
       await this.db.save(user);
       return user;
     } catch (err) {
@@ -59,38 +61,14 @@ export default class UserService implements IService {
     }
   }
 
-  // GENERER UN TOKEN
-  async generateToken(params: ITokenParams) {
-    try {
-      return sign(params, `${process.env.JWT_KEY}`, {
-        expiresIn: "1h",
-      });
-    } catch (err) {
-      throw new Error(err);
-    }
-  }
-
-  // RECUPERER PAYLOAD DU TOKEN
-  async getPayload(token: string) {
-    try {
-      return jwt.verify(token, `${process.env.JWT_KEY}`);
-    } catch (err) {
-      throw new Error(err);
-    }
-  }
-
-  // LOGIN
-  async login({ email, password }: ILogin) {
-    try {
-      const user = await this.findByEmail(email);
-      if (!user) throw new Error("Utilisateur introuvable");
-      const isValidPassword = await this.checkPassword(password, user.password);
-      if (!isValidPassword) throw new Error("Mot de passe incorrect");
-      const token = await this.generateToken({ email });
-      return token;
-    } catch (err) {
-      throw new Error(err);
-    }
+  async createAccessToken(user: User) {
+    return jwt.sign(
+      { email: user.email },
+      `${process.env.REFRESH_TOKEN_SECRET}`,
+      {
+        expiresIn: "15min",
+      }
+    );
   }
 
   async checkPassword(password: string, hashPassword: string) {
