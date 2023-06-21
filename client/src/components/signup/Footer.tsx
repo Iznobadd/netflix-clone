@@ -11,37 +11,37 @@ const Footer = () => {
         </p>
         <ul className="m-0 p-0 box-border text-[13px] max-w-[1000px]">
           <li className="inline-block mb-[16px] min-w-[100px] pr-[12px] sm:w-[33%] w-[50%] md:w-[25%] align-top">
-            <a href="#" className="text-[#737373]">
+            <a href="/" className="text-[#737373]">
               <span>FAQ</span>
             </a>
           </li>
           <li className="inline-block mb-[16px] min-w-[100px] pr-[12px] sm:w-[33%] w-[50%] md:w-[25%] align-top">
-            <a href="#" className="text-[#737373]">
+            <a href="/" className="text-[#737373]">
               <span>Centre d'aide</span>
             </a>
           </li>
           <li className="inline-block mb-[16px] min-w-[100px] pr-[12px] sm:w-[33%] w-[50%] md:w-[25%] align-top">
-            <a href="#" className="text-[#737373]">
+            <a href="/" className="text-[#737373]">
               <span>Boutique Netflix</span>
             </a>
           </li>
           <li className="inline-block mb-[16px] min-w-[100px] pr-[12px] sm:w-[33%] w-[50%] md:w-[25%] align-top">
-            <a href="#" className="text-[#737373]">
+            <a href="/" className="text-[#737373]">
               <span>Conditions d'utilisation</span>
             </a>
           </li>
           <li className="inline-block mb-[16px] min-w-[100px] pr-[12px] sm:w-[33%] w-[50%] md:w-[25%] align-top">
-            <a href="#" className="text-[#737373]">
+            <a href="/" className="text-[#737373]">
               <span>Confidentialité</span>
             </a>
           </li>
           <li className="inline-block mb-[16px] min-w-[100px] pr-[12px] sm:w-[33%] w-[50%] md:w-[25%] align-top">
-            <a href="#" className="text-[#737373]">
+            <a href="/" className="text-[#737373]">
               <span>Préférences de cookies</span>
             </a>
           </li>
           <li className="inline-block mb-[16px] min-w-[100px] pr-[12px] sm:w-[33%] w-[50%] md:w-[25%] align-top">
-            <a href="#" className="text-[#737373]">
+            <a href="/" className="text-[#737373]">
               <span>Mentions légales</span>
             </a>
           </li>

@@ -1,7 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { useContext, useState } from "react";
 import { LOGIN } from "../../services/auth.query";
-import Cookies from "js-cookie";
 import {
   handleBlur,
   handleFocus,
@@ -212,7 +211,7 @@ const LoginForm = () => {
             </label>
           </div>
           <a
-            href="#"
+            href="/"
             target="_self"
             className="pt-[2px] cursor-pointer text-[#b3b3b3] text-[13px] "
           >

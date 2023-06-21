@@ -4,7 +4,6 @@ import {
   isValidEmail,
   isValidPassword,
 } from "../../../utils/functions";
-import { useSelector } from "react-redux";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../../../services/auth.query";
@@ -15,7 +14,6 @@ const Form = () => {
   const { email } = useContext(EmailContext);
   const navigate = useNavigate();
   const inputFocus = useRef<HTMLInputElement | null>(null);
-
 
   const [register] = useMutation(REGISTER);
 
@@ -80,7 +78,7 @@ const Form = () => {
     }
 
     try {
-      const response = await register({
+      await register({
         variables: {
           createUserInput: {
             email: form.email,

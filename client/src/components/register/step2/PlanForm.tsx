@@ -298,7 +298,7 @@ const PlanForm = () => {
               </span>
               <span>
                 Une offre avec pub comprend quelques différences.
-                <a href="#" className="text-[#0071eb]">
+                <a href="/" className="text-[#0071eb]">
                   {" "}
                   Savoir comment ça fonctionne.
                 </a>
@@ -309,7 +309,7 @@ const PlanForm = () => {
                 Si vous sélectionnez une offre avec pub, nous vous demanderons
                 de fournir votre date de naissance pour personnaliser les
                 publicités, ainsi qu'à d'autres fins conformes à la
-                <a href="#" className="text-[#0071eb]">
+                <a href="/" className="text-[#0071eb]">
                   {" "}
                   Déclaration de confidentialité{" "}
                 </a>
@@ -323,7 +323,7 @@ const PlanForm = () => {
                 et des capacités de l'appareil. Tous les contenus ne sont pas
                 disponibles dans toutes les résolutions. Pour en savoir plus,
                 veuillez consulter nos{" "}
-                <a href="#" className="text-[#0071eb]">
+                <a href="/" className="text-[#0071eb]">
                   Conditions d'utilisation
                 </a>
                 .
@@ -334,7 +334,7 @@ const PlanForm = () => {
                 Seules les personnes qui vivent avec vous peuvent utiliser votre
                 compte. Ajoutez un abonné supplémentaire avec une offre Standard
                 ou jusqu'à deux abonnés supplémentaires avec une offre Premium.{" "}
-                <a href="#" className="text-[#0071eb]">
+                <a href="/" className="text-[#0071eb]">
                   En savoir plus
                 </a>
                 . Regardez Netflix en simultané sur 4 appareils différents avec

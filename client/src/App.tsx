@@ -4,12 +4,8 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import SignUp from "./screens/SignUp";
-import Hero from "./screens/Hero";
-import RegisterRoutes from "./routes/RegisterRoutes";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
-import { EmailContext } from "./context/EmailContext";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import Browse from "./screens/Browse";
 import PublicRoutes from "./routes/PublicRoutes";

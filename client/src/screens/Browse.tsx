@@ -1,7 +1,7 @@
-import React from "react";
+import Navbar from "../components/browse/Navbar";
 
 function Browse() {
-  return <div>Test</div>;
+  return <Navbar />;
 }
 
 export default Browse;
