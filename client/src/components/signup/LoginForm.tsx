@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGIN } from "../../services/auth.query";
 import Cookies from "js-cookie";
 import {
@@ -8,8 +8,10 @@ import {
   isValidEmail,
   isValidPassword,
 } from "../../utils/functions";
+import { AuthContext } from "../../context/AuthContext";
 
 const LoginForm = () => {
+  const auth = useContext(AuthContext);
   const [login] = useMutation(LOGIN);
   const [form, setForm] = useState({
     email: "",
@@ -85,8 +87,7 @@ const LoginForm = () => {
           },
         },
       });
-      const token = response.data.login;
-      Cookies.set("jwt", token, { expires: 1, path: "/" });
+      auth.login(response.data.login);
     } catch (error: any) {
       switch (error.message) {
         case "Error: Utilisateur introuvable":

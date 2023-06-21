@@ -5,20 +5,22 @@ import {
   isValidPassword,
 } from "../../../utils/functions";
 import { useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../../../services/auth.query";
 import { useNavigate } from "react-router-dom";
+import { EmailContext } from "../../../context/EmailContext";
 
 const Form = () => {
+  const { email } = useContext(EmailContext);
   const navigate = useNavigate();
   const inputFocus = useRef<HTMLInputElement | null>(null);
-  const emailSave = useSelector((state: any) => state.email);
+
 
   const [register] = useMutation(REGISTER);
 
   const [form, setForm] = useState({
-    email: emailSave,
+    email: email || "",
     pwd: "",
   });
   const [formError, setFormError] = useState({
@@ -89,7 +91,6 @@ const Form = () => {
       navigate("/register/choose");
     } catch (error) {
       // RETOURNER UNE PAGE 500
-      console.log("register error", error);
 
       return error;
     }

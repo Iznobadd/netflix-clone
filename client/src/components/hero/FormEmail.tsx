@@ -1,12 +1,11 @@
 import { handleBlur, handleFocus, isValidEmail } from "../../utils/functions";
-import { useDispatch } from "react-redux";
-import { saveEmail } from "../../store/emailSlice";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Error from "../svg/Error";
+import { EmailContext } from "../../context/EmailContext";
 const FormEmail = ({ index }: any) => {
+  const emailContext = useContext(EmailContext);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState({
     error: true,
@@ -16,8 +15,7 @@ const FormEmail = ({ index }: any) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (emailError.error) return;
-
-    dispatch(saveEmail(email));
+    emailContext.setEmail(email);
     navigate("/register/registration");
   };
 

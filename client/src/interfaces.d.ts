@@ -3,3 +3,9 @@ export interface Question {
   answer: string;
   showAnswer: boolean;
 }
+
+export interface Token {
+  email: string;
+  iat: number;
+  exp: number;
+}
