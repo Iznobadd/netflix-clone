@@ -66,7 +66,7 @@ export default class UserService implements IService {
       { email: user.email },
       `${process.env.REFRESH_TOKEN_SECRET}`,
       {
-        expiresIn: "15min",
+        expiresIn: "7d",
       }
     );
   }
