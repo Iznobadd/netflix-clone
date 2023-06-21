@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import Search from "../svg/Search";
+import Notifications from "../svg/Notifications";
+import ProfilePicture from "../../assets/images/profilePicture.png";
 
 function Navbar() {
   const navigation = [
@@ -25,7 +28,6 @@ function Navbar() {
             to="/browse"
             className="text-[25px] mr-6 text-primary cursor-pointer inline-block "
           >
-            {" "}
             <svg
               viewBox="0 0 111 30"
               version="1.1"
@@ -39,7 +41,51 @@ function Navbar() {
               </g>
             </svg>
           </Link>
-          <ul className="flex items-center"></ul>
+          <ul className="flex items-center">
+            {navigation.map((item, key) => (
+              <li className="block ml-5" key={key}>
+                <Link
+                  to={item.href}
+                  className={` items-center flex h-full relative ${
+                    item.current ? "text-white" : "text-[#e5e5e5]"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="flex items-center h-full justify-end absolute right-[4%] top-0">
+            <div className="mr-4">
+              <div className="inline-block align-middle">
+                <button className="bg-transparent border-none cursor-pointer inline-block">
+                  <Search />
+                </button>
+              </div>
+            </div>
+            <div className="mr-4">
+              <span className="relative whitespace-normal">
+                <button className="bg-transparent border-none text-[1.5em] leading-none pt-[2px] pb-[3px] px-[6px] relative cursor-pointer">
+                  <Notifications />
+                </button>
+              </span>
+            </div>
+            <div>
+              <div className="block text-[12px] relative z-0">
+                <div className="flex items-center cursor-pointer w-full">
+                  <a
+                    href="#"
+                    className="block relative -z-10 text-white cursor-pointer"
+                  >
+                    <span className="flex items-center relative">
+                      <img className="h-8 w-8 rounded" src={ProfilePicture} />
+                    </span>
+                  </a>
+                  <span className="h-0 border-t-white border-transparent border-solid border-[5px] border-b-[0px] ml-3 w-0"></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
